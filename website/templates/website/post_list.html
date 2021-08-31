@@ -1,0 +1,43 @@
+{% extends 'website/base.html' %}
+
+{% block input %}
+{% if post_list %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>星</th>
+      <th>レビュー</th>
+    </tr>
+  </thead>
+  <tbody>   
+    {% for post in post_list|slice:":10" %}
+      <tr>
+        <td>{{ post.pk }}</td>
+        <td>{{ post.title}}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}
+
+{% block output %}
+{% if trans_list %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>星</th>
+      <th>レビュー</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for post in trans_list|slice:":10" %}
+      <tr>
+        <td>{{ post.0 }}</td>
+        <td>{{ post.1 }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}
